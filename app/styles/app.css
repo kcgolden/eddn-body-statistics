@@ -1,0 +1,85 @@
+/*
+    THEME
+
+    #D4EDF7 - Lightest Blue
+
+ 
+    #347B98 - Turqouis
+
+ 
+    #0247FE - Blue
+
+ 
+    #4424D6 - Purple
+
+ 
+    #110934 - Dark Purple
+*/
+body {
+    background-color: #190934;
+    color: #D4E4F7;
+}
+a:link {
+    color: #183BF0;
+}
+a:visited {
+    color: #5A18C9;
+}
+a:hover {
+    color: #236AB9;
+}
+.wrapper {
+    text-align: center;
+    color: #190934;
+    margin: 5px;
+    border-radius: 5px;
+}
+.site {
+    width: 70%;
+    display: inline-block;
+}
+.chart-title {
+    padding-top: 5px;
+    display: inline-block;
+    font-size: larger;
+    margin: 0 auto;
+}
+.nav {
+    background-color: #D4E4F7;
+    color: #190934;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.article {
+    padding-top: 60px;
+    padding-bottom: 300px;
+    display: inline-block;
+    margin-top: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    background-color: #D4E4F7;
+    text-align: left;
+    min-height: 1000px;
+    width: 100%;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.article-wrapper {
+    text-align: center;
+    color: #190934;
+    border-radius: 5px;
+    height: 80%;
+}
+.article-title {
+    font-size: x-large;
+}
+hr {
+   border-color : #347B98;
+}
+.article-section-title {
+    margin-top: 30px;
+    font-size: large;
+}
+.section-right {
+    margin-left: 30px;
+}

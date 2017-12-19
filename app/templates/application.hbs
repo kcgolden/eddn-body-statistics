@@ -1,2 +1,16 @@
-<span>{{#link-to 'materials'}}Materials{{/link-to}}</span> | <span>{{#link-to 'stars'}}Stars{{/link-to}}</span>
-{{outlet}}
+<div class="wrapper">
+    <div class="site">
+        {{#bs-nav type="tabs" as |nav|}}
+            {{#nav.item}}
+                {{#nav.link-to "materials"}}Materials{{/nav.link-to}}
+            {{/nav.item}}
+            {{#nav.item}}
+                {{#nav.link-to "stars"}}Planets{{/nav.link-to}}
+            {{/nav.item}}
+            {{#nav.item}}
+                {{#nav.link-to "about"}}About{{/nav.link-to}}
+            {{/nav.item}}
+        {{/bs-nav}}
+        {{outlet}}
+    </div>
+</div>
