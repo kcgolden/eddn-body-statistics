@@ -1,0 +1,7 @@
+{
+  "name": "eddn-body-statistics",
+  "dependencies": {
+    "d3": "~3.5.3",
+    "lodash": "~3.10.0"
+  }
+}
