@@ -5,7 +5,7 @@ function __getScanTimesByDay(conn, collectionName) {
     let removeNullTimeStamps = {
         $match: {
             ScanTimestamp: {
-                $in: [/\d\d\d\d-\d\d-\d\d/]
+                $ne: null
             }
         }
     };
@@ -14,9 +14,9 @@ function __getScanTimesByDay(conn, collectionName) {
     let groupScansByDay = {
         $group: {
             _id: {
-                year:  { $substr : ["$ScanTimestamp", 0, 4 ] },   
-                month: { $substr : ["$ScanTimestamp", 5, 2 ] },                                      
-                day:   { $substr : ["$ScanTimestamp", 8, 2 ] },
+                year:  { $year : '$ScanTimestamp' },   
+                month: { $month : '$ScanTimestamp' },                                      
+                day:   { $dayOfMonth : '$ScanTimestamp' },
             },
             scanCount: {
                 $sum: 1
