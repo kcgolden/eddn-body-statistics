@@ -6,11 +6,20 @@
     <title>The EDDN Explorer Aggregation Service (EDDNE.io)</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111581674-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
+      gtag('config', 'UA-111581674-1');
+    </script>
     {{content-for "head"}}
 
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css" integrity="">
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/eddn-body-statistics.css" integrity="">
+
     {{content-for "head-footer"}}
   </head>
   <body>
