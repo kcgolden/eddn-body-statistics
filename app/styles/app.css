@@ -83,3 +83,9 @@ hr {
 .section-right {
     margin-left: 30px;
 }
+.center {
+    text-align: center;
+}
+.patreon-image {
+    width: 200px;
+}

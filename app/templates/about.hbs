@@ -3,20 +3,30 @@
     <div class="section-right">
         <div class="article-section-title">Why?</div>
         <hr>
-        <p>This site was inspired by circumstances I encountered while exploring far away from civilized space. I needed to find certain "very rare" materials for a resupply. Since few stars and planets were cataloged nearby, it was quite a long distance to the nearest catalogued planet known to contain the materials I needed according to sites like <a href="eddb.io">EDDB</a>. As a result, I searched for a reference answering definitively "which stars and which planet types should I be trying to explore in order to increase my chances of finding a good supply of the material I'm looking for." This site was born precisely to do that and answer many other questions not currently answered which can be gleaned from the eddn network's journal data.</p>
+        <p>This site was initially inspired by circumstances I encountered while exploring far away from civilized space. I needed to find certain "very rare" materials for a resupply. Since few stars and planets were cataloged nearby, it was quite a long distance to the nearest catalogued planet known to contain the materials I needed according to sites like <a href="eddb.io">EDDB</a>. As a result, I searched for a reference answering definitively "which stars and which planet types should I be trying to explore in order to increase my chances of finding a good supply of the material I'm looking for." This site was born precisely to do that and in the process of collecting data, I realized I could use the data to answer other statistical questions unexplored by other sites.</p>
     </div>
     <div class="section-right">
         <div class="article-section-title">Data Collection And Aggregation Methodology</div>
         <hr>
         <p>
-            Data for this site was recorded from the <a href="https://github.com/EDSM-NET/EDDN/wiki">Elite Dangerous Data Network</a> feed. The data for scans of celestial objects is collected live and stored in a MongoDb instance. The data is then aggregated using nodejs and mongoDbs data aggregation framework. The dataset currently consists of {{format-number starCount format="0,0"}} stars and {{format-number bodyCount format="0,0"}} orbital bodies.
+            Data for this site was recorded from the <a href="https://github.com/EDSM-NET/EDDN/wiki">Elite Dangerous Data Network</a> feed. The data for scans of celestial objects is collected live and stored in a MongoDb instance. The data is then aggregated using nodejs and mongoDbs data aggregation framework. The dataset currently consists of {{format-number starCount format="0,0"}} stars and {{format-number bodyCount format="0,0"}} orbital bodies. These data began being collected in mid December 2017 and will continue to be collected as long as this site exists. Updates to the aggregation this site uses occurs nightly.
         </p>
         <p>Aggregation Process Details:</p>
         <ul>
             <li>Star type samples with fewer than 100 total stars of that type are ignored when aggregating the data.</li>
             <li>Certain data may be biased by the Elite Dangerous Exploration Community's tendancy to not scan every object orbiting stars. Low value rare targets like gas giants may be undersampled as a result.</li>
-
         </ul>
+        <div class="article-section-title">Please Support This Project Through Patreon!</div>
+        <hr>
+        <p>
+            I created this site as a side project and mostly for fun but there are costs associated with hosting, time and maintenence. I would greatly appreciate any contibutions. To do so, please click the button below:
+            <br>
+            <br>
+            <div class="center">
+                <div class="center"><a href="https://www.patreon.com/bePatron?u=8934485"><img class="patreon-image" src="images/Patreon-Support-Button.png"></a></div>
+            </div>
+        </p>
+
     </div>
 </div>
 

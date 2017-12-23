@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('about');
   this.route('planets');
   this.route('explorers');
+  this.route('home');
 });
 
 export default Router;

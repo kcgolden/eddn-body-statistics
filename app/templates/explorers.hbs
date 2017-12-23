@@ -6,9 +6,11 @@
         <hr>
         <div class="article-section-title">Scan Counts By Day</div>
         {{time-series-chart lineData=sortedTimeSeriesScan selectedInterval='D' timeDelta='day'}}
+        {{timeGraphCaveatMsg}}
         <hr>
         <div class="article-section-title">Unique Scanners By Day</div>
         {{time-series-chart lineData=sortedTimeSeriesUniqueScanners selectedInterval='D' timeDelta='day'}}
+        {{timeGraphCaveatMsg}}
     </div>
 </div>
 {{outlet}}

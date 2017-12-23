@@ -44,4 +44,5 @@ export default Controller.extend({
     timeSeriesUniqueScanners: Ember.computed.union('starUniqueScannersTimesMapping', 'planetUniqueScannersTimesMapping'),
     sortedTimeSeriesUniqueScanners: Ember.computed.sort('timeSeriesUniqueScanners', 'timeSeriesScanSortingAsc'),
     timeSeriesScanSortingAsc: ['time:asc'],
+    timeGraphCaveatMsg: "This graph will look odd in the beginning as there isn't a long history of data collection yet and the uptime of the data collection software I wrote varied in the beginning days. Overtime, it will even out."
 });
