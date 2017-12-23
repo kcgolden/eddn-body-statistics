@@ -10,6 +10,8 @@ Router.map(function() {
   this.route('materials');
   this.route('stars');
   this.route('about');
+  this.route('planets');
+  this.route('explorers');
 });
 
 export default Router;

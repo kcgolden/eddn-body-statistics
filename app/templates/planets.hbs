@@ -1,0 +1,20 @@
+<div class="article">
+    <div class="article-title">Planets</div>
+    <div class="section-right">
+        <div class="article-section-title">Planet Encounter Probability By Star Type</div>
+        <hr>
+        <div class="section-right">
+            <div class="chart-title">Common Planets</div>
+            {{bar-chart data=commonPlanetTypeMapping}}
+
+            <div class="chart-title">Uncommon Planets</div>
+            {{bar-chart data=ucommonPlanetTypeMapping}}
+        </div>
+        <div class="article-section-title">Scans</div>
+        <hr>
+        <div class="section-right">
+            {{pie-chart data=planetScansPie}}
+        </div>
+    </div>
+</div>
+{{outlet}}

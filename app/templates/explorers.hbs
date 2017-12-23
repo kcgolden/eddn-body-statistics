@@ -1,0 +1,14 @@
+<div class="article">
+    <div class="article-title">Explorers</div>
+    <div class="section-right">
+        <div class="article-section-title">Scan Counts By Software</div>
+        {{pie-chart data=softwareCounts}}
+        <hr>
+        <div class="article-section-title">Scan Counts By Day</div>
+        {{time-series-chart lineData=sortedTimeSeriesScan selectedInterval='D' timeDelta='day'}}
+        <hr>
+        <div class="article-section-title">Unique Scanners By Day</div>
+        {{time-series-chart lineData=sortedTimeSeriesUniqueScanners selectedInterval='D' timeDelta='day'}}
+    </div>
+</div>
+{{outlet}}

@@ -31,7 +31,7 @@ function getPlanetTypeCountsByStarType(conn) {
                     as: 'el',
                     in: {
                             planetType: {
-                                $ifNull: ['$$el.PlanetClass', 'Asteroid Belt']
+                                $ifNull: ['$$el.PlanetClass', 'Asteroid Belt Cluster']
                             },
                             landable: '$$el.Landable'
                     }
