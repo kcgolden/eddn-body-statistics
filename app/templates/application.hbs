@@ -1,26 +1,31 @@
-<div class="wrapper">
-    <div class="site">
-        {{#bs-nav type="tabs" as |nav|}}
-            {{#nav.item}}
-                {{#nav.link-to "home"}}Home{{/nav.link-to}}
-            {{/nav.item}}
-            {{#nav.item}}
-                {{#nav.link-to "materials"}}Elements{{/nav.link-to}}
-            {{/nav.item}}
-            {{#nav.item}}
-                {{#nav.link-to "stars"}}Stars{{/nav.link-to}}
-            {{/nav.item}}
-            {{#nav.item}}
-                {{#nav.link-to "planets"}}Planets{{/nav.link-to}}
-            {{/nav.item}}
-            {{#nav.item}}
-                {{#nav.link-to "explorers"}}Explorers{{/nav.link-to}}
-            {{/nav.item}}
-            {{#nav.item}}
-                {{#nav.link-to "about"}}About{{/nav.link-to}}
-            {{/nav.item}}
-
-        {{/bs-nav}}
-        {{outlet}}
+<div class="no-gutters">
+<div class="col-md-2"></div>
+<div class="col-md-8 col-sm-12 no-gutters no-padding">
+    {{#bs-navbar type="tabs" fluid=fluid collapsed=collapsed onCollapse=(action (mut collapsed) true) onExpand=(action (mut collapsed) false) as |navbar|}}
+    <div class="navbar-header">
+        {{navbar.toggle class="glyphicon glyphicon-menu-hamburger"}}
+        {{#link-to "index" class="navbar-brand"}}EDDNE.IO{{/link-to}}
     </div>
+    {{#navbar.content}}
+        {{#navbar.nav as |nav|}}
+        {{#nav.item}}
+            {{#nav.link-to "materials"}}Elements{{/nav.link-to}}
+        {{/nav.item}}
+        {{#nav.item}}
+            {{#nav.link-to "stars"}}Stars{{/nav.link-to}}
+        {{/nav.item}}
+        {{#nav.item}}
+            {{#nav.link-to "planets"}}Planets{{/nav.link-to}}
+        {{/nav.item}}
+        {{#nav.item}}
+            {{#nav.link-to "explorers"}}Explorers{{/nav.link-to}}
+        {{/nav.item}}
+        {{#nav.item}}
+            {{#nav.link-to "about"}}About{{/nav.link-to}}
+        {{/nav.item}}
+        {{/navbar.nav}}
+    {{/navbar.content}}
+    {{/bs-navbar}}
+    {{outlet}}
+</div>
 </div>
