@@ -30,9 +30,13 @@ export default Controller.extend({
     planetScanTimesMapping: Ember.computed.map('model.timeScans.planetScanTimes', function(scanTimeData) {
         return transformScanTimeData(scanTimeData, 'planet scans', 'scanCount');
     }),
-    timeSeriesScan: Ember.computed.union('starScanTimesMapping', 'planetScanTimesMapping'),
-    sortedTimeSeriesScan: Ember.computed.sort('timeSeriesScan', 'timeSeriesScanSortingAsc'),
-    timeSeriesScanSortingAsc: ['time:asc'],
+    sortedTimeSeriesScan: Ember.computed('starScanTimesMapping', 'planetScanTimesMapping', function() {
+        let starScanTimesMapping = this.get('starScanTimesMapping').sortBy('time');
+        let planetScanTimesMapping = this.get('planetScanTimesMapping').sortBy('time');
+        starScanTimesMapping.pop();
+        planetScanTimesMapping.pop();
+        return starScanTimesMapping.concat(planetScanTimesMapping);
+    }),
 
     //line chart "unique explorers scanning by day"
     starUniqueScannersTimesMapping: Ember.computed.map('model.timeScans.starScanTimes', function(scanTimeData) {
@@ -41,8 +45,12 @@ export default Controller.extend({
     planetUniqueScannersTimesMapping: Ember.computed.map('model.timeScans.planetScanTimes', function(scanTimeData) {
         return transformScanTimeData(scanTimeData, 'planet scans', 'uniqueScanners');
     }),
-    timeSeriesUniqueScanners: Ember.computed.union('starUniqueScannersTimesMapping', 'planetUniqueScannersTimesMapping'),
-    sortedTimeSeriesUniqueScanners: Ember.computed.sort('timeSeriesUniqueScanners', 'timeSeriesScanSortingAsc'),
-    timeSeriesScanSortingAsc: ['time:asc'],
+    sortedTimeSeriesUniqueScanners: Ember.computed('starUniqueScannersTimesMapping', 'planetUniqueScannersTimesMapping', function() {
+        let starUniqueScannersTimesMapping = this.get('starUniqueScannersTimesMapping').sortBy('time');
+        let planetUniqueScannersTimesMapping = this.get('planetUniqueScannersTimesMapping').sortBy('time');
+        starUniqueScannersTimesMapping.pop();
+        planetUniqueScannersTimesMapping.pop();
+        return starUniqueScannersTimesMapping.concat(planetUniqueScannersTimesMapping)
+    }),
     timeGraphCaveatMsg: "This graph will look odd in the beginning as there isn't a long history of data collection yet and the uptime of the data collection software I wrote varied in the beginning days. Overtime, it will even out."
 });
