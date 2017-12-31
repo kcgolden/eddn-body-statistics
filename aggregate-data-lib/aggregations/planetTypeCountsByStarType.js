@@ -1,6 +1,16 @@
+const uniq = require('../utils/uniq');
+
 function getPlanetTypeCountsByStarType(conn) {
     let collection = conn.get('stars');
     let aggQueries = [];
+    let filterToMainStars = {
+        $match: {
+            $expr: {
+                $eq: ['$StarSystem', '$BodyName']
+            }
+        }
+    };
+    aggQueries.push(filterToMainStars);
     let groupByStarNames = {
         $group: {
             _id: '$BodyName',
@@ -129,7 +139,21 @@ function getPlanetTypeCountsByStarType(conn) {
     aggQueries.push(sort);
 
 
-    return collection.aggregate(aggQueries, {allowDiskUse: true});
+    return collection.aggregate(aggQueries, {allowDiskUse: true})
+    .then(function(data) {
+        let finalArray = [];
+        let tracker = {};
+        data.forEach((planetTypeDatum) => {
+            planetTypeDatum.type = planetTypeDatum.type.charAt(0).toUpperCase();
+            if(tracker[planetTypeDatum.type + planetTypeDatum.planetType] !== undefined) {
+                finalArray[tracker[planetTypeDatum.type + planetTypeDatum.planetType]].totalPlanetsOfType += planetTypeDatum.totalPlanetsOfType;
+            } else {
+                tracker[planetTypeDatum.type + planetTypeDatum.planetType] = finalArray.length;
+                finalArray.push(planetTypeDatum);
+            }
+        });
+        return Promise.resolve(finalArray);
+    });
 
 }
 

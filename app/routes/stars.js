@@ -1,7 +1,11 @@
 import Route from '@ember/routing/route';
+import RSVP from 'rsvp';
 
 export default Route.extend({
     model(){
-        return Ember.$.getJSON("data/planetTypeByStarType.json");
+        return RSVP.hash({
+            planetTypeByStarType: Ember.$.getJSON("data/planetTypeByStarType.json"),
+            planetTypeByMassType: Ember.$.getJSON("data/starMassByMassCode.json")
+        });
     }
 });
