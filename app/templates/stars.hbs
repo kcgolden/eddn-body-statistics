@@ -3,7 +3,7 @@
     <div class="section-right">
         <div class="chart-title">Mass Code By Primary Star Distribution</div>
         <hr>
-        <p>These pie charts show the distribution of Primary Star Types among the mass codes in the procedureally generated names of system names. The letter in bold in this example is one such mass code: "Wizz AR-D <strong>d</strong>1-42." Since these mass indicators demonstrate the mass of the entire system and all we're measuring here are primary stars, the minimum masses may be skewed since some systems contain a lot of mass due to many companion stars as opposed to the primary star representing most of the system's mass alone. A great source of further information on this subject is <a href="https://forums.frontier.co.uk/showthread.php/339164-Marx-s-guide-to-finding-Earth-like-worlds">this post</a> by CMDR Marx on the frontier forums.</p>
+        <p>These pie charts show the distribution of Primary Star Types among the mass codes in the procedureally generated names of system names. The letter in bold in this example is one such mass code: "Wizz AR-D <strong>d</strong>1-42." Since these mass indicators demonstrate the mass of the entire system and all we're measuring here are primary stars, the minimum masses may be skewed since some systems contain a lot of mass due to many companion stars as opposed to the primary star representing most of the system's mass alone. A great source of further information on this subject is <a href="https://forums.frontier.co.uk/showthread.php?t=196297">this post</a> by "Jackie Silver" on the frontier forums.</p>
         <div class="chart-grid row">
             {{#each massInfoMapping as |massInfo|}}
             <div class="col-sm-12 col-md-6">
@@ -11,14 +11,26 @@
                     <div>Mass Code: <strong>{{massInfo.massCode}}</strong></div>
                     <div>Average Solar Mass: <strong>{{massInfo.avgMass}}</strong></div>
                     <div>Range in Solar Masses: <strong>{{massInfo.minMass}} - {{massInfo.maxMass}}</strong></div>
+                    <div>Minimum Mass Star: <strong>{{massInfo.minName}}</strong></div>
+                    <div>Maximum Mass Star: <strong>{{massInfo.maxName}}</strong></div>
                     {{pie-chart data=massInfo.pie}}
                 </div>
             </div>
             {{/each}}
         </div>
         <div class="chart-title row">Scans</div>
-        <div class="chart-dark">
-        {{pie-chart data=starScansPie}}
+        <hr>
+        <div class="col-sm-12 col-md-6">
+            <div class="chart-dark">
+                <div><strong>By Mass Code</strong></div>
+                {{pie-chart data=massDistributionPie}}
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6">
+            <div class="chart-dark">
+                <div><strong>By Stellar Class</strong></div>
+                {{pie-chart data=starScansPie}}
+            </div>
         </div>
     </div>
 </div>

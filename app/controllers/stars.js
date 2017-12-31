@@ -13,6 +13,18 @@ export default Controller.extend({
         return massInfo;
     }),
 
+    totalSystemsNumbers: Ember.computed.mapBy('model.planetTypeByMassType', 'totalSystems'),
+    totalSystemsWithMassCodes: Ember.computed.sum('totalSystemsNumbers'),
+
+    massDistributionPie: Ember.computed('model.planetTypeByMassType', 'totalSystemsNumbers', function() {
+        return this.get('model.planetTypeByMassType').map((massInfo) => {
+            return {
+                label: massInfo.massCode.toUpperCase(),
+                value: massInfo.totalSystems / this.get('totalSystemsWithMassCodes')
+            };
+        });
+    }),
+
 
     starTypes: Ember.computed.uniqBy('model.planetTypeByStarType', 'type'),
     starScansPie: Ember.computed.map('starTypes', function(typeData) {
